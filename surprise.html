@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Final Royal Surprise</title><link rel="stylesheet" href="css/style.css"></head>
+<body data-page="6" class="dark">
+  <div class="progress" data-progress></div>
+  <div class="topbar"><span class="brand">✦ The Final Surprise</span><span class="progress-label" data-progress-label></span><button class="music" data-music>🔇</button></div>
+  <main class="page">
+    <h2 data-heading>Your Final Royal Surprise Is Waiting...</h2>
+    <div class="gift" data-gift>🎁</div>
+    <button class="btn" data-open>OPEN YOUR GIFT 🎁</button>
+    <article class="glass panel hidden" data-message><p class="letter"></p><p class="reveal hidden" data-last>BUT WAIT... ONE LAST SURPRISE FOR YOU ❤️</p><a class="btn hidden" data-video href="video.html">WATCH YOUR SPECIAL VIDEO 🎬</a></article>
+  </main>
+  <script src="js/content.js"></script><script src="js/script.js"></script><script src="js/surprise.js"></script>
+  <script>
+    document.querySelector("[data-heading]").textContent = princessContent.surpriseHeading;
+    document.querySelector("[data-open]").addEventListener("click", () => {
+      document.querySelector("[data-open]").classList.add("hidden");
+      const message = document.querySelector("[data-message]");
+      message.querySelector(".letter").textContent = princessContent.finalMessage;
+      message.classList.remove("hidden");
+      message.classList.add("reveal");
+    }, { once: true });
+  </script>
+</body>
+</html>

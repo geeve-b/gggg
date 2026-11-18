@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A Letter For My Queen</title><link rel="stylesheet" href="css/style.css"></head>
+<body data-page="5">
+  <div class="progress" data-progress></div>
+  <div class="topbar"><span class="brand">✦ A Secret Letter</span><span class="progress-label" data-progress-label></span><button class="music" data-music>🔇</button></div>
+  <main class="page">
+    <p class="eyebrow">Written especially for <span data-name></span></p>
+    <h2>A Letter For My Queen</h2>
+    <div class="envelope" data-envelope><div><div class="crown">💌</div><strong>Open your letter</strong></div></div>
+    <article class="glass panel hidden" data-letter><h2></h2><p class="letter" data-message></p><a class="btn hidden" data-next href="surprise.html">UNLOCK YOUR FINAL SURPRISE 🎁</a></article>
+  </main>
+  <script src="js/content.js"></script><script src="js/script.js"></script>
+  <script>
+    document.querySelector("[data-name]").textContent = princessContent.princessName;
+    document.querySelector("[data-envelope]").onclick = () => {
+      const letter = document.querySelector("[data-letter]");
+      letter.querySelector("h2").textContent = princessContent.loveLetter.heading;
+      letter.classList.remove("hidden");
+      letter.classList.add("reveal");
+      document.querySelector("[data-envelope]").classList.add("hidden");
+      window.typeText(letter.querySelector("[data-message]"), princessContent.loveLetter.message, () => {
+        letter.querySelector("[data-next]").classList.remove("hidden");
+      });
+    };
+  </script>
+</body>
+</html>
